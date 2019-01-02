@@ -28,10 +28,7 @@ public class GameCode extends Application {
         TilePane tilePane = new TilePane();
 
         BackEnd game = new BackEnd();
-        game.addNextPattern();
-        game.addNextPattern();
-        game.addNextPattern();
-        game.addNextPattern();
+
 
         EventHandler<ActionEvent> eventOne = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
@@ -78,5 +75,13 @@ public class GameCode extends Application {
         primaryStage.setScene(scene);
 
         primaryStage.show();
+
+    }
+
+    private void success() {
+
+    }
+    private void failure() {
+
     }
 }
