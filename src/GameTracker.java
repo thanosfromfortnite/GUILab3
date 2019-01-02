@@ -20,4 +20,11 @@ public class GameTracker {
         }
         else return false;
     }
+
+    public boolean checkIfIndexIsFrickedUp(int index) {
+        if (index >= puzzle.size()) {
+            return true;
+        }
+        else return false;
+    }
 }

@@ -20,22 +20,47 @@ public class GameCode extends Application {
     public void start(Stage primaryStage) {
         primaryStage.setTitle("Stuff");
 
-
-
-        Button button = new Button("click");
+        Button buttonOne = new Button("click");
+        Button buttonTwo = new Button("click two");
+        Button buttonThree = new Button("click three");
+        Button buttonFour = new Button("click four");
 
         TilePane tilePane = new TilePane();
 
-        EventHandler<ActionEvent> event = new EventHandler<ActionEvent>() {
+        EventHandler<ActionEvent> eventOne = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
-                button.setText("very cool");
+                buttonOne.setText("very cool");
             }
         };
+        EventHandler<ActionEvent> eventTwo = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                buttonTwo.setText("very cool");
+            }
+        };
+        EventHandler<ActionEvent> eventThree = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                buttonThree.setText("very cool");
+            }
+        };
+        EventHandler<ActionEvent> eventFour = new EventHandler<ActionEvent>() {
+            public void handle(ActionEvent e)
+            {
+                buttonFour.setText("very cool");
+            }
+        };
+        buttonOne.setOnAction(eventOne);
+        buttonTwo.setOnAction(eventTwo);
+        buttonThree.setOnAction(eventThree);
+        buttonFour.setOnAction(eventFour);
 
-        button.setOnAction(event);
+        tilePane.getChildren().add(buttonOne);
+        tilePane.getChildren().add(buttonTwo);
+        tilePane.getChildren().add(buttonThree);
+        tilePane.getChildren().add(buttonFour);
 
-        tilePane.getChildren().add(button);
         Scene scene = new Scene(tilePane, 200, 200);
 
         primaryStage.setWidth(800);
