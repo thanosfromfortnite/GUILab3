@@ -27,30 +27,38 @@ public class GameCode extends Application {
 
         TilePane tilePane = new TilePane();
 
-
+        GameTracker game = new GameTracker();
+        game.addNextPattern();
+        game.addNextPattern();
+        game.addNextPattern();
+        game.addNextPattern();
 
         EventHandler<ActionEvent> eventOne = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 buttonOne.setText("very cool");
+                System.out.println(game.returnPartOfPattern(0));
             }
         };
         EventHandler<ActionEvent> eventTwo = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 buttonTwo.setText("very cool");
+                System.out.println(game.returnPartOfPattern(1));
             }
         };
         EventHandler<ActionEvent> eventThree = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 buttonThree.setText("very cool");
+                System.out.println(game.returnPartOfPattern(2));
             }
         };
         EventHandler<ActionEvent> eventFour = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e)
             {
                 buttonFour.setText("very cool");
+                System.out.println(game.returnPartOfPattern(3));
             }
         };
         buttonOne.setOnAction(eventOne);

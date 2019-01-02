@@ -6,7 +6,7 @@ public class GameTracker {
     private ArrayList<Integer> puzzle = new ArrayList<>();
 
     public void addNextPattern() {
-        puzzle.add((int) (Math.random() * 3));
+        puzzle.add((int) (Math.random() * 4));
     }
 
     public List<Integer> returnPattern() {
@@ -18,6 +18,10 @@ public class GameTracker {
             return true;
         }
         else return false;
+    }
+
+    public int returnPartOfPattern(int index) {
+        return puzzle.get(index);
     }
 
     public boolean checkIfIndexIsFrickedUp(int index) {
