@@ -8,4 +8,6 @@ public class GameTracker {
     public void addNextPattern() {
         puzzle.add((int) (Math.random() * 3));
     }
+
+    public List
 }
