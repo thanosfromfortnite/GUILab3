@@ -3,7 +3,6 @@ import java.util.List;
 
 public class GameTracker {
     private int score;
-    private String name;
     private ArrayList<Integer> puzzle = new ArrayList<>();
 
     public void addNextPattern() {
@@ -27,4 +26,13 @@ public class GameTracker {
         }
         else return false;
     }
+
+    public void addScore(int increment) {
+        score += increment;
+    }
+
+    public void createHighScore(String name) {
+        String hiScore = name + ": " + score;
+    }
+
 }
