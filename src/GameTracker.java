@@ -1,4 +1,5 @@
 import java.util.ArrayList;
+import java.util.List;
 
 public class GameTracker {
     private int score;
@@ -9,5 +10,14 @@ public class GameTracker {
         puzzle.add((int) (Math.random() * 3));
     }
 
-    public List
+    public List<Integer> returnPattern() {
+        return puzzle;
+    }
+
+    public boolean checkCompletion(int guess, int index) {
+        if (new Integer(guess).compareTo(puzzle.get(index)) == 0) {
+            return true;
+        }
+        else return false;
+    }
 }
