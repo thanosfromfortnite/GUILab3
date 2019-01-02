@@ -27,7 +27,7 @@ public class GameCode extends Application {
 
         TilePane tilePane = new TilePane();
 
-        GameTracker game = new GameTracker();
+        BackEnd game = new BackEnd();
         game.addNextPattern();
         game.addNextPattern();
         game.addNextPattern();
