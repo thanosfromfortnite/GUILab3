@@ -35,6 +35,10 @@ public class BackEnd {
         score += increment;
     }
 
+    public int returnScore() {
+        return score;
+    }
+
     public void createHighScore(String name) {
         String hiScore = name + ": " + score;
     }
