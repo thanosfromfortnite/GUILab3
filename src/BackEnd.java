@@ -2,7 +2,7 @@ import java.util.ArrayList;
 import java.util.List;
 
 public class BackEnd {
-    private int score;
+    private int score, increment;
     private ArrayList<Integer> puzzle = new ArrayList<>();
 
     public void addNextPattern() {
@@ -24,6 +24,17 @@ public class BackEnd {
         return puzzle.get(index);
     }
 
+    public void increment() {
+        increment ++;
+    }
+
+    public void resetIncrement() {
+        increment = 0;
+    }
+
+    public int getIncrement() {
+        return increment;
+    }
     public boolean checkIfIndexIsFrickedUp(int index) {
         if (index >= puzzle.size()) {
             return true;

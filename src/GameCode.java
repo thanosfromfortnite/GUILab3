@@ -37,6 +37,7 @@ public class GameCode extends Application {
         game.addNextPattern();
         Text t = new Text();
         display(t, game);
+        int index = 0;
 
         // FileWriter highScore = new FileWriter("C:\\eggs.csv", true);
         // DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -44,25 +45,27 @@ public class GameCode extends Application {
         EventHandler<ActionEvent> eventOne = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonOne.setText("very cool");
-                attempt(game, 0, t);
+                if (attempt(game, 0, t, index)) {
+                    index ++;
+                }
             }
         };
         EventHandler<ActionEvent> eventTwo = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonTwo.setText("very cool");
-                attempt(game, 1, t);
+                attempt(game, 1, t, index);
             }
         };
         EventHandler<ActionEvent> eventThree = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonThree.setText("very cool");
-                attempt(game, 2, t);
+                attempt(game, 2, t, index);
             }
         };
         EventHandler<ActionEvent> eventFour = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonFour.setText("very cool");
-                attempt(game, 3, t);
+                attempt(game, 3, t, index);
             }
         };
         buttonOne.setOnAction(eventOne);
@@ -87,15 +90,18 @@ public class GameCode extends Application {
 
     }
 
-    private boolean attempt(BackEnd game, int num, Text t) {
-        if (game.returnPartOfPattern(game.returnScore()) == num) {
+    private boolean attempt(BackEnd game, int num, Text t, int index) {
+        if (game.returnPartOfPattern(index) == num) {
             game.addScore(1);
             game.addNextPattern();
             display(t, game);
-            return true;
         } else {
+
+        }
+        if (index == game.returnPattern().size() - 1) {
             return false;
         }
+        return true;
     }
 
     private void display(Text t, BackEnd game) {
