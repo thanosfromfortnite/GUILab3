@@ -27,17 +27,17 @@ public class GameCode extends Application {
     public void start(Stage primaryStage) throws Exception {
         primaryStage.setTitle("Stuff");
 
-        Button buttonOne = new Button("click");
-        Button buttonTwo = new Button("click two");
-        Button buttonThree = new Button("click three");
-        Button buttonFour = new Button("click four");
+        Button buttonOne = new Button("click zero");
+        Button buttonTwo = new Button("click one");
+        Button buttonThree = new Button("click two");
+        Button buttonFour = new Button("click three");
         TilePane tilePane = new TilePane();
 
         BackEnd game = new BackEnd();
         game.addNextPattern();
+        game.addNextPattern();
         Text t = new Text();
         display(t, game);
-        int index = 0;
 
         // FileWriter highScore = new FileWriter("C:\\eggs.csv", true);
         // DateFormat dateFormat = new SimpleDateFormat("yyyy/MM/dd HH:mm:ss");
@@ -45,27 +45,41 @@ public class GameCode extends Application {
         EventHandler<ActionEvent> eventOne = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonOne.setText("very cool");
-                if (attempt(game, 0, t, index)) {
-                    index ++;
+                if (attempt(game, 0, t, game.returnIncrement())) {
+                    game.increment();
+                } else {
+                    game.resetIncrement();
                 }
             }
         };
         EventHandler<ActionEvent> eventTwo = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonTwo.setText("very cool");
-                attempt(game, 1, t, index);
+                if (attempt(game, 1, t, game.returnIncrement())) {
+                    game.increment();
+                } else {
+                    game.resetIncrement();
+                }
             }
         };
         EventHandler<ActionEvent> eventThree = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonThree.setText("very cool");
-                attempt(game, 2, t, index);
+                if (attempt(game, 2, t, game.returnIncrement())) {
+                    game.increment();
+                } else {
+                    game.resetIncrement();
+                }
             }
         };
         EventHandler<ActionEvent> eventFour = new EventHandler<ActionEvent>() {
             public void handle(ActionEvent e) {
                 buttonFour.setText("very cool");
-                attempt(game, 3, t, index);
+                if (attempt(game, 3, t, game.returnIncrement())) {
+                    game.increment();
+                } else {
+                    game.resetIncrement();
+                }
             }
         };
         buttonOne.setOnAction(eventOne);
@@ -93,7 +107,6 @@ public class GameCode extends Application {
     private boolean attempt(BackEnd game, int num, Text t, int index) {
         if (game.returnPartOfPattern(index) == num) {
             game.addScore(1);
-            game.addNextPattern();
             display(t, game);
         } else {
 
@@ -101,6 +114,7 @@ public class GameCode extends Application {
         if (index == game.returnPattern().size() - 1) {
             return false;
         }
+        game.addNextPattern();
         return true;
     }
 

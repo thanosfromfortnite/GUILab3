@@ -32,6 +32,8 @@ public class BackEnd {
         increment = 0;
     }
 
+    public int returnIncrement() { return increment; }
+
     public int getIncrement() {
         return increment;
     }
